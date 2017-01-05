@@ -45,6 +45,7 @@ public final class Position {
     private final int y;
 
     private Position(Orientation orientation, int x, int y) {
+
         this.orientation = orientation;
         this.x = x;
         this.y = y;
