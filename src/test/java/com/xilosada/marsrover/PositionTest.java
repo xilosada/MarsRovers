@@ -1,3 +1,10 @@
+package com.xilosada.marsrover;
+
+import com.xilosada.marsrover.Position.Orientation;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
 /**
  * Created by xabierlosada on 05/01/17.
  * MIT License
@@ -22,17 +29,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class MyClass {
+public class PositionTest {
 
-    final int first;
-    final int second;
+    @Test public void shouldCreateAPositionWithAFactoryMethod() throws Exception {
 
-    public MyClass(int first, int second) {
-        this.first = first;
-        this.second = second;
+        Position position = Position.createPosition(Orientation.N, 0, 1);
+
+        assertEquals(Orientation.N, position.getOrientation());
+        assertEquals(0, position.getX());
+        assertEquals(1, position.getY());
     }
 
-    public int sum() {
-        return first + second;
-    }
 }

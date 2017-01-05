@@ -1,6 +1,4 @@
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+package com.xilosada.marsrover;
 
 /**
  * Created by xabierlosada on 05/01/17.
@@ -26,11 +24,11 @@ import static org.junit.Assert.*;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class MyClassTest {
+public interface SpaceVehicle {
 
-    @Test public void sum() throws Exception {
-        MyClass myClass = new MyClass(1,2);
-        assertEquals(3, myClass.sum());
-    }
+    Position move(Position position);
 
+    Position turnLeft(Position position);
+
+    Position turnRight(Position position);
 }
