@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
 public class MissionFileReader implements MissionReader {
 
 
-    private String path;
+    private final String path;
 
     public MissionFileReader(String path) {
         this.path = path;

@@ -40,16 +40,4 @@ public class PositionTest {
         assertEquals(1, position.getY());
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowWhenXIsNegative() throws Exception {
-
-        Position.createPosition(Position.Orientation.N, -1, 1);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowWhenYIsNegative() throws Exception {
-
-        Position.createPosition(Position.Orientation.N, 1, -1);
-    }
-
 }

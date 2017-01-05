@@ -57,12 +57,12 @@ public class RoverTest {
         assertEquals(2, resultPosition.getY());
 
 
-        position = Position.createPosition(Orientation.W, 0 ,1);
+        position = Position.createPosition(Orientation.W, 1 ,1);
 
         resultPosition = rover.move(position);
 
         assertSameOrientation(position, resultPosition);
-        assertEquals(-1, resultPosition.getX());
+        assertEquals(0, resultPosition.getX());
         assertEquals(1, resultPosition.getY());
 
 
