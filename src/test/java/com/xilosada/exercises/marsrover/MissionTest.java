@@ -40,10 +40,10 @@ import static org.junit.Assert.*;
 public class MissionTest {
 
     @Test public void calculateFinalPosition() throws Exception {
-        int plateauSize = 3;
+        Plateau plateau = Plateau.createPlateau(3, 3);
         List<Order> orders = Arrays.asList(M, L, M, L, M, L, M);
         Position deployPosition = Position.createPosition(N, 0, 0);
-        Mission mission = Mission.createMission(plateauSize, orders, deployPosition);
+        Mission mission = Mission.createMission(plateau, orders, deployPosition);
 
         Position finalPosition = mission.calculateFinalPosition();
 
@@ -53,10 +53,10 @@ public class MissionTest {
     }
 
     @Test public void shouldSolveFirstExample() {
-        int plateauSize = 5;
+        Plateau plateau = Plateau.createPlateau(5, 5);
         List<Order> orders = Arrays.asList(L, M, L, M, L, M, L, M, M);
         Position deployPosition = Position.createPosition(N, 1, 2);
-        Mission mission = Mission.createMission(plateauSize, orders, deployPosition);
+        Mission mission = Mission.createMission(plateau, orders, deployPosition);
 
         Position finalPosition = mission.calculateFinalPosition();
 
@@ -67,10 +67,10 @@ public class MissionTest {
 
 
     @Test public void shouldSolveSecondExample() {
-        int plateauSize = 5;
+        Plateau plateau = Plateau.createPlateau(5, 5);
         List<Order> orders = Arrays.asList(M, M, R, M, M, R, M, R, R, M);
         Position deployPosition = Position.createPosition(E, 3, 3);
-        Mission mission = Mission.createMission(plateauSize, orders, deployPosition);
+        Mission mission = Mission.createMission(plateau, orders, deployPosition);
 
         Position finalPosition = mission.calculateFinalPosition();
 

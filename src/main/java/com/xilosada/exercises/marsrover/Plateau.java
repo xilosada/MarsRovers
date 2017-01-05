@@ -26,13 +26,13 @@ package com.xilosada.exercises.marsrover;
  */
 public class Plateau {
 
-    private final int x;
+    private final int sizeX;
 
-    private final int y;
+    private final int sizeY;
 
-    public Plateau(int x, int y) {
-        this.x = x;
-        this.y = y;
+    private Plateau(int x, int y) {
+        this.sizeX = x;
+        this.sizeY = y;
     }
 
     public static Plateau createPlateau(int x, int y) {
@@ -41,11 +41,11 @@ public class Plateau {
 
 
     public int getSizeX() {
-        return x;
+        return sizeX;
     }
 
     public int getSizeY() {
-        return y;
+        return sizeY;
     }
 
 }
