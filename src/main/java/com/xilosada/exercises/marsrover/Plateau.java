@@ -36,6 +36,8 @@ public class Plateau {
     }
 
     public static Plateau createPlateau(int x, int y) {
+        if (x < 1) throw new IllegalArgumentException("X size must be positive");
+        if (y < 1) throw new IllegalArgumentException("Y size  must be positive");
         return new Plateau(x, y);
     }
 

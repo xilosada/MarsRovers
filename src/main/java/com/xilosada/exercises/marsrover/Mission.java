@@ -59,11 +59,18 @@ public class Mission {
                 position = spaceVehicle.turnRight(position);
                 break;
             case M:
-                position = spaceVehicle.move(position);
-
+                Position newPosition = spaceVehicle.move(position);
+                if (validate(newPosition)) {
+                    position = newPosition;
+                }
                 break;
-            default: throw new UnsupportedOperationException();
+            default:
+                throw new UnsupportedOperationException();
         }
     }
 
+    private boolean validate(Position moved) {
+        return !(moved.getX() > plateau.getSizeX() && moved.getX() >= 0 ||
+                moved.getY() > plateau.getSizeY() && moved.getY() >= 0);
+    }
 }

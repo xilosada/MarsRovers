@@ -1,6 +1,7 @@
 package com.xilosada.exercises;
 
 import com.xilosada.exercises.marsrover.Order;
+import com.xilosada.exercises.marsrover.Plateau;
 import com.xilosada.exercises.marsrover.Position;
 import com.xilosada.exercises.marsrover.Position.Orientation;
 
@@ -51,7 +52,7 @@ public class MissionFileReader implements MissionReader {
     }
 
     private MissionInput parseLines(List<String> lines) {
-        int plateauSize = getPlateauSize(cleanedString(lines.get(0)));
+        Plateau plateauSize = getPlateau(cleanedString(lines.get(0)));
         Position rover1Position = getInitialPosition(cleanedString(lines.get(1)));
         List<Order> rover1Orders = getOrdersFromString(cleanedString(lines.get(2)));
         Position rover2Position  = getInitialPosition(cleanedString(lines.get(3)));
@@ -74,8 +75,11 @@ public class MissionFileReader implements MissionReader {
         return Position.createPosition(orientation, x ,y);
     }
 
-    private int getPlateauSize(String input) {
-        return Integer.valueOf(input.substring(0, input.indexOf("x")));
+    private Plateau getPlateau(String input) {
+        int separatorIndex = input.indexOf("x");
+        int x = Integer.valueOf(input.substring(0, separatorIndex));
+        int y = Integer.valueOf(input.substring(separatorIndex + 1));
+        return Plateau.createPlateau(x, y);
     }
 
     private Orientation getOrientationFromString(String orientationString) {

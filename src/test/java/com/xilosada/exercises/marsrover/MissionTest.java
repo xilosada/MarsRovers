@@ -65,7 +65,6 @@ public class MissionTest {
         assertEquals(N, finalPosition.getOrientation());
     }
 
-
     @Test public void shouldSolveSecondExample() {
         Plateau plateau = Plateau.createPlateau(5, 5);
         List<Order> orders = Arrays.asList(M, M, R, M, M, R, M, R, R, M);
@@ -77,6 +76,19 @@ public class MissionTest {
         assertEquals(5, finalPosition.getX());
         assertEquals(1, finalPosition.getY());
         assertEquals(E, finalPosition.getOrientation());
+    }
+
+    @Test public void shouldStayInThePositionWhenIsInTheLimitOfThePlateau() {
+        Plateau plateau = Plateau.createPlateau(1, 1);
+        List<Order> orders = Arrays.asList(M, M, R, M, M, R, M, R, R, M);
+        Position deployPosition = Position.createPosition(N, 1, 1);
+        Mission mission = Mission.createMission(plateau, orders, deployPosition);
+
+        Position finalPosition = mission.calculateFinalPosition();
+
+        assertEquals(1, finalPosition.getX());
+        assertEquals(1, finalPosition.getY());
+        assertEquals(N, finalPosition.getOrientation());
     }
 
 }

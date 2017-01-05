@@ -1,6 +1,7 @@
 package com.xilosada.exercises;
 
 import com.xilosada.exercises.marsrover.Order;
+import com.xilosada.exercises.marsrover.Plateau;
 import com.xilosada.exercises.marsrover.Position;
 
 import java.util.List;
@@ -31,7 +32,7 @@ import java.util.List;
  */
 public final class MissionInput {
 
-    private int plateauSize;
+    private Plateau plateau;
 
     private final Position rover1DeployPoint;
     private final List<Order> rover1Orders;
@@ -39,20 +40,20 @@ public final class MissionInput {
     private final Position rover2DeployPoint;
     private final List<Order> rover2Orders;
 
-    public MissionInput(int plateauSize,
+    public MissionInput(Plateau plateau,
                         Position rover1DeployPoint,
                         List<Order> rover1Orders,
                         Position rover2DeployPoint,
                         List<Order> rover2Orders) {
-        this.plateauSize = plateauSize;
+        this.plateau = plateau;
         this.rover1DeployPoint = rover1DeployPoint;
         this.rover1Orders = rover1Orders;
         this.rover2DeployPoint = rover2DeployPoint;
         this.rover2Orders = rover2Orders;
     }
 
-    public int getPlateauSize() {
-        return plateauSize;
+    public Plateau getPlateauSize() {
+        return plateau;
     }
 
     public Position getRover1DeployPoint() {

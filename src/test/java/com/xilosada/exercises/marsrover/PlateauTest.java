@@ -37,4 +37,14 @@ public class PlateauTest {
         assertEquals(3, plateau.getSizeY());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldFailWhenCreatingANegativeXSizePlateau() throws Exception {
+        Plateau.createPlateau(-1, 3);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldFailWhenCreatingANegativeYSizePlateau() throws Exception {
+        Plateau.createPlateau(1, -3);
+    }
+
 }
