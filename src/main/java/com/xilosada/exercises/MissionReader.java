@@ -1,9 +1,4 @@
-package com.xilosada.marsrover;
-
-import com.xilosada.marsrover.Position.Orientation;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+package com.xilosada.exercises;
 
 /**
  * Created by xabierlosada on 05/01/17.
@@ -29,15 +24,7 @@ import static org.junit.Assert.*;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class PositionTest {
+public interface MissionReader {
 
-    @Test public void shouldCreateAPositionWithAFactoryMethod() throws Exception {
-
-        Position position = Position.createPosition(Orientation.N, 0, 1);
-
-        assertEquals(Orientation.N, position.getOrientation());
-        assertEquals(0, position.getX());
-        assertEquals(1, position.getY());
-    }
-
+    MissionInput getInput() throws Exception;
 }
