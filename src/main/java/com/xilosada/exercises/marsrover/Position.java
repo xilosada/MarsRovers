@@ -1,4 +1,4 @@
-package com.xilosada.marsrover;
+package com.xilosada.exercises.marsrover;
 
 /**
  * Created by xabierlosada on 05/01/17.
@@ -26,8 +26,18 @@ package com.xilosada.marsrover;
  */
 public final class Position {
 
-    enum Orientation {
-        N, E, S, W
+    public enum Orientation {
+        N("N"), E("E"), S("S"), W("W");
+
+        public String asString() {
+            return asString;
+        }
+
+        private final String asString;
+
+        Orientation(String asString) {
+            this.asString = asString;
+        }
     }
 
     private final Orientation orientation;

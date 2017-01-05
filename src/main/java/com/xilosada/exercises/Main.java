@@ -1,9 +1,9 @@
-package com.xilosada.marsrover;
+package com.xilosada.exercises;
 
-import com.xilosada.marsrover.Position.Orientation;
-import org.junit.Test;
+import com.xilosada.exercises.marsrover.Mission;
+import com.xilosada.exercises.marsrover.Position;
 
-import static org.junit.Assert.*;
+import java.io.IOException;
 
 /**
  * Created by xabierlosada on 05/01/17.
@@ -29,15 +29,23 @@ import static org.junit.Assert.*;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class PositionTest {
+public class Main {
 
-    @Test public void shouldCreateAPositionWithAFactoryMethod() throws Exception {
-
-        Position position = Position.createPosition(Orientation.N, 0, 1);
-
-        assertEquals(Orientation.N, position.getOrientation());
-        assertEquals(0, position.getX());
-        assertEquals(1, position.getY());
+    public static void main(String... args) {
+        try {
+            MissionInput input = new MissionFileReader(args[0]).getInput();
+            Position position1 = Mission.createMission(input.getPlateauSize(),
+                    input.getRover1Orders(),
+                    input.getRover1DeployPoint())
+                    .calculateFinalPosition();
+            Position position2 = Mission.createMission(input.getPlateauSize(),
+                    input.getRover2Orders(),
+                    input.getRover2DeployPoint())
+                    .calculateFinalPosition();
+            new MissionOutput(position1,position2).printResult();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

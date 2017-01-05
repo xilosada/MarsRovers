@@ -1,4 +1,4 @@
-package com.xilosada.marsrover;
+package com.xilosada.exercises.marsrover;
 
 import java.util.List;
 
@@ -34,11 +34,15 @@ public class Mission {
 
     private Position position;
 
-    public Mission(SpaceVehicle spaceVehicle, int plateuSize, List<Order> orders, Position position) {
+    private Mission(SpaceVehicle spaceVehicle, int plateuSize, List<Order> orders, Position position) {
         this.spaceVehicle = spaceVehicle;
         this.plateuSize = plateuSize;
         this.orders = orders;
         this.position = position;
+    }
+
+    public static Mission createMission(int plateuSize, List<Order> orders, Position position) {
+        return new Mission(new Rover(), plateuSize, orders, position);
     }
 
     public Position calculateFinalPosition() {

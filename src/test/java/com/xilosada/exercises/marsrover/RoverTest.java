@@ -1,6 +1,6 @@
-package com.xilosada.marsrover;
+package com.xilosada.exercises.marsrover;
 
-import com.xilosada.marsrover.Position.Orientation;
+import com.xilosada.exercises.marsrover.Position.Orientation;
 import org.junit.Before;
 import org.junit.Test;
 
