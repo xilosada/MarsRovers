@@ -2,15 +2,13 @@
 
 [![Build Status](https://travis-ci.org/xilosada/MarsRovers.svg?branch=develop)](https://travis-ci.org/xilosada/MarsRovers)
 
-### Description
+## Description
  
- A squad of robotic rovers are to be landed by NASA on a plateau on Mars. This
+ A squad of robotic rovers are to be landed by NASA on a plateau on Mars. This plateau, which is curiously rectangular, 
  
- plateau, which is curiously rectangular, must be navigated by the rovers so that their
+ must be navigated by the rovers so that their on-board cameras can get a complete view of the surrounding terrain 
  
- on-board cameras can get a complete view of the surrounding terrain to send back to
- 
- Earth.
+ to send back to Earth.
  
  A rover’s position and location is represented by a combination of x and y coordinates
  
@@ -51,7 +49,7 @@
  Output: The output for each rover should be its final coordinates and heading.
  
  
- ####Test Input:
+ ###Test Input:
  
  Plateau size: 5x5
  
@@ -63,13 +61,13 @@
  
  Rover 2 movement: MMRMMRMRRM
  
- ####Expected Output:
+ ###Expected Output:
  
  Rover 1 position: 1 3 N
  
  Rover 2 position: 5 1 E
   
-### Running application
+## Running application
 
 1. Clone this repository 
 2. Make sure you are using JDK 1.8 and Maven 3.0+
