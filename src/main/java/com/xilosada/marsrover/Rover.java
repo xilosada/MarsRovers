@@ -1,3 +1,9 @@
+package com.xilosada.marsrover;
+
+import com.xilosada.marsrover.Position.Orientation;
+
+import static com.xilosada.marsrover.Position.createPositionSameLocation;
+
 /**
  * Created by xabierlosada on 05/01/17.
  * MIT License
@@ -22,17 +28,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class MyClass {
+public class Rover {
 
-    final int first;
-    final int second;
-
-    public MyClass(int first, int second) {
-        this.first = first;
-        this.second = second;
-    }
-
-    public int sum() {
-        return first + second;
+    static Position turnLeft(Position position) {
+        switch (position.getOrientation()) {
+            case N:
+                return createPositionSameLocation(position, Orientation.W);
+            case E:
+                return createPositionSameLocation(position, Orientation.N);
+            case S:
+                return createPositionSameLocation(position, Orientation.E);
+            case W:
+                return createPositionSameLocation(position, Orientation.S);
+            default:
+                throw new UnsupportedOperationException("Invalid orientation");
+        }
     }
 }
