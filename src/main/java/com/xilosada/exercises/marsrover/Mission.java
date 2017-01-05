@@ -29,20 +29,20 @@ import java.util.List;
 public class Mission {
 
     private final SpaceVehicle spaceVehicle;
-    private final int plateuSize;
+    private final Plateau plateau;
     private final List<Order> orders;
 
     private Position position;
 
-    private Mission(SpaceVehicle spaceVehicle, int plateuSize, List<Order> orders, Position position) {
+    private Mission(SpaceVehicle spaceVehicle, Plateau plateau, List<Order> orders, Position position) {
         this.spaceVehicle = spaceVehicle;
-        this.plateuSize = plateuSize;
+        this.plateau = plateau;
         this.orders = orders;
         this.position = position;
     }
 
-    public static Mission createMission(int plateuSize, List<Order> orders, Position position) {
-        return new Mission(new Rover(), plateuSize, orders, position);
+    public static Mission createMission(Plateau plateau, List<Order> orders, Position position) {
+        return new Mission(new Rover(), plateau, orders, position);
     }
 
     public Position calculateFinalPosition() {
@@ -59,11 +59,18 @@ public class Mission {
                 position = spaceVehicle.turnRight(position);
                 break;
             case M:
-                position = spaceVehicle.move(position);
-
+                Position newPosition = spaceVehicle.move(position);
+                if (validate(newPosition)) {
+                    position = newPosition;
+                }
                 break;
-            default: throw new UnsupportedOperationException();
+            default:
+                throw new UnsupportedOperationException();
         }
     }
 
+    private boolean validate(Position moved) {
+        return !(moved.getX() > plateau.getSizeX() && moved.getX() >= 0 ||
+                moved.getY() > plateau.getSizeY() && moved.getY() >= 0);
+    }
 }
