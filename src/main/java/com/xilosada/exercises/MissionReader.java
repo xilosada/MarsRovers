@@ -26,5 +26,5 @@ package com.xilosada.exercises;
  */
 public interface MissionReader {
 
-    public MissionInput getInput() throws Exception;
+    MissionInput getInput() throws Exception;
 }

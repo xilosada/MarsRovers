@@ -34,18 +34,26 @@ public class Main {
     public static void main(String... args) {
         try {
             MissionInput input = new MissionFileReader(args[0]).getInput();
-            Position position1 = Mission.createMission(input.getPlateauSize(),
-                    input.getRover1Orders(),
-                    input.getRover1DeployPoint())
-                    .calculateFinalPosition();
-            Position position2 = Mission.createMission(input.getPlateauSize(),
-                    input.getRover2Orders(),
-                    input.getRover2DeployPoint())
-                    .calculateFinalPosition();
-            new MissionOutput(position1,position2).printResult();
+            solveExercise(input);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void solveExercise(MissionInput input) {
+
+        Position position1 = Mission.createMission(input.getPlateauSize(),
+                input.getRover1Orders(),
+                input.getRover1DeployPoint())
+                .calculateFinalPosition();
+
+        Position position2 = Mission.createMission(input.getPlateauSize(),
+                input.getRover2Orders(),
+                input.getRover2DeployPoint())
+                .calculateFinalPosition();
+
+        new MissionOutput(position1,position2)
+                .printResult();
     }
 
 }
