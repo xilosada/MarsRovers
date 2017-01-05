@@ -45,6 +45,9 @@ public final class Position {
     private final int y;
 
     private Position(Orientation orientation, int x, int y) {
+
+        if (x < 0) throw new IllegalArgumentException("X size must be positive");
+        if (y < 0) throw new IllegalArgumentException("Y size  must be positive");
         this.orientation = orientation;
         this.x = x;
         this.y = y;
