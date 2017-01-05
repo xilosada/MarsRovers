@@ -49,7 +49,7 @@
  Output: The output for each rover should be its final coordinates and heading.
  
  
- ###Test Input:
+ Test Input:
  
  Plateau size: 5x5
  
@@ -61,7 +61,7 @@
  
  Rover 2 movement: MMRMMRMRRM
  
- ###Expected Output:
+ Expected Output:
  
  Rover 1 position: 1 3 N
  
