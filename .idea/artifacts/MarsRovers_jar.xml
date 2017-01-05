@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="MarsRovers:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MarsRovers_jar</output-path>
+    <root id="root">
+      <element id="archive" name="MarsRovers.jar">
+        <element id="module-output" name="MarsRovers" />
+      </element>
+    </root>
+  </artifact>
+</component>

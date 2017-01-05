@@ -1,9 +1,4 @@
-package com.xilosada.marsrover;
-
-import com.xilosada.marsrover.Position.Orientation;
-
-import static com.xilosada.marsrover.Position.createPosition;
-import static com.xilosada.marsrover.Position.createPositionSameLocation;
+package com.xilosada.exercises.marsrover;
 
 /**
  * Created by xabierlosada on 05/01/17.
@@ -36,13 +31,13 @@ public class Rover implements SpaceVehicle{
     public Position move(Position position) {
         switch (position.getOrientation()) {
             case N:
-                return createPosition(Orientation.N, position.getX(), position.getY() + 1);
+                return Position.createPosition(Position.Orientation.N, position.getX(), position.getY() + 1);
             case E:
-                return createPosition(Orientation.E, position.getX() + 1, position.getY());
+                return Position.createPosition(Position.Orientation.E, position.getX() + 1, position.getY());
             case S:
-                return createPosition(Orientation.S, position.getX(), position.getY() - 1);
+                return Position.createPosition(Position.Orientation.S, position.getX(), position.getY() - 1);
             case W:
-                return createPosition(Orientation.W, position.getX() - 1, position.getY());
+                return Position.createPosition(Position.Orientation.W, position.getX() - 1, position.getY());
             default:
                 throw new InvalidOrientationException();
         }
@@ -51,13 +46,13 @@ public class Rover implements SpaceVehicle{
     public Position turnLeft(Position position) {
         switch (position.getOrientation()) {
             case N:
-                return createPositionSameLocation(position, Orientation.W);
+                return Position.createPositionSameLocation(position, Position.Orientation.W);
             case E:
-                return createPositionSameLocation(position, Orientation.N);
+                return Position.createPositionSameLocation(position, Position.Orientation.N);
             case S:
-                return createPositionSameLocation(position, Orientation.E);
+                return Position.createPositionSameLocation(position, Position.Orientation.E);
             case W:
-                return createPositionSameLocation(position, Orientation.S);
+                return Position.createPositionSameLocation(position, Position.Orientation.S);
             default:
                 throw new InvalidOrientationException();
         }
@@ -66,13 +61,13 @@ public class Rover implements SpaceVehicle{
     public Position turnRight(Position position) {
         switch (position.getOrientation()) {
             case N:
-                return createPositionSameLocation(position, Orientation.E);
+                return Position.createPositionSameLocation(position, Position.Orientation.E);
             case E:
-                return createPositionSameLocation(position, Orientation.S);
+                return Position.createPositionSameLocation(position, Position.Orientation.S);
             case S:
-                return createPositionSameLocation(position, Orientation.W);
+                return Position.createPositionSameLocation(position, Position.Orientation.W);
             case W:
-                return createPositionSameLocation(position, Orientation.N);
+                return Position.createPositionSameLocation(position, Position.Orientation.N);
             default:
                 throw new InvalidOrientationException();
         }

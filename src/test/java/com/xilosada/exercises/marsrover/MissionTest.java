@@ -1,18 +1,16 @@
-package com.xilosada.marsrover;
+package com.xilosada.exercises.marsrover;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.xilosada.marsrover.Order.L;
-import static com.xilosada.marsrover.Order.M;
-import static com.xilosada.marsrover.Order.R;
-import static com.xilosada.marsrover.Position.Orientation.E;
-import static com.xilosada.marsrover.Position.Orientation.N;
-import static com.xilosada.marsrover.Position.Orientation.W;
+import static com.xilosada.exercises.marsrover.Order.L;
+import static com.xilosada.exercises.marsrover.Order.M;
+import static com.xilosada.exercises.marsrover.Order.R;
+import static com.xilosada.exercises.marsrover.Position.Orientation.E;
+import static com.xilosada.exercises.marsrover.Position.Orientation.N;
 import static org.junit.Assert.*;
 
 /**
@@ -41,17 +39,11 @@ import static org.junit.Assert.*;
  */
 public class MissionTest {
 
-    SpaceVehicle spaceVehicle;
-
-    @Before public void setUp() {
-        spaceVehicle = new Rover();
-    }
-
     @Test public void calculateFinalPosition() throws Exception {
         int plateauSize = 3;
         List<Order> orders = Arrays.asList(M, L, M, L, M, L, M);
         Position deployPosition = Position.createPosition(N, 0, 0);
-        Mission mission = new Mission(spaceVehicle, plateauSize, orders, deployPosition);
+        Mission mission = Mission.createMission(plateauSize, orders, deployPosition);
 
         Position finalPosition = mission.calculateFinalPosition();
 
@@ -64,7 +56,7 @@ public class MissionTest {
         int plateauSize = 5;
         List<Order> orders = Arrays.asList(L, M, L, M, L, M, L, M, M);
         Position deployPosition = Position.createPosition(N, 1, 2);
-        Mission mission = new Mission(spaceVehicle, plateauSize, orders, deployPosition);
+        Mission mission = Mission.createMission(plateauSize, orders, deployPosition);
 
         Position finalPosition = mission.calculateFinalPosition();
 
@@ -78,7 +70,7 @@ public class MissionTest {
         int plateauSize = 5;
         List<Order> orders = Arrays.asList(M, M, R, M, M, R, M, R, R, M);
         Position deployPosition = Position.createPosition(E, 3, 3);
-        Mission mission = new Mission(spaceVehicle, plateauSize, orders, deployPosition);
+        Mission mission = Mission.createMission(plateauSize, orders, deployPosition);
 
         Position finalPosition = mission.calculateFinalPosition();
 

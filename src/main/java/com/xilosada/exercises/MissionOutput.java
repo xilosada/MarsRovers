@@ -1,4 +1,6 @@
-package com.xilosada.marsrover;
+package com.xilosada.exercises;
+
+import com.xilosada.exercises.marsrover.Position;
 
 /**
  * Created by xabierlosada on 05/01/17.
@@ -24,11 +26,22 @@ package com.xilosada.marsrover;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public interface SpaceVehicle {
+public class MissionOutput {
 
-    Position move(Position position);
+    private final Position rover1Position;
+    private final Position rover2Position;
 
-    Position turnLeft(Position position);
+    public MissionOutput(Position rover1Position, Position rover2Position) {
+        this.rover1Position = rover1Position;
+        this.rover2Position = rover2Position;
+    }
 
-    Position turnRight(Position position);
+    public void printResult() {
+        printRoverPosition("Rover 1", rover1Position);
+        printRoverPosition("Rover 2", rover2Position);
+    }
+
+    private void printRoverPosition(String name, Position pos) {
+        System.out.printf("%s position: %d %d %s\n", name, pos.getX(), pos.getY(), pos.getOrientation().asString());
+    }
 }
