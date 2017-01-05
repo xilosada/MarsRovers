@@ -2,6 +2,7 @@ package com.xilosada.marsrover;
 
 import com.xilosada.marsrover.Position.Orientation;
 
+import static com.xilosada.marsrover.Position.createPosition;
 import static com.xilosada.marsrover.Position.createPositionSameLocation;
 
 /**
@@ -30,6 +31,21 @@ import static com.xilosada.marsrover.Position.createPositionSameLocation;
  */
 public class Rover {
 
+    static Position move(Position position) {
+        switch (position.getOrientation()) {
+            case N:
+                return createPosition(Orientation.N, position.getX(), position.getY() + 1);
+            case E:
+                return createPosition(Orientation.E, position.getX() + 1, position.getY());
+            case S:
+                return createPosition(Orientation.S, position.getX(), position.getY() - 1);
+            case W:
+                return createPosition(Orientation.W, position.getX() - 1, position.getY());
+            default:
+                throw new InvalidOrientationException();
+        }
+    }
+
     static Position turnLeft(Position position) {
         switch (position.getOrientation()) {
             case N:
@@ -41,7 +57,29 @@ public class Rover {
             case W:
                 return createPositionSameLocation(position, Orientation.S);
             default:
-                throw new UnsupportedOperationException("Invalid orientation");
+                throw new InvalidOrientationException();
+        }
+    }
+
+    static Position turnRight(Position position) {
+        switch (position.getOrientation()) {
+            case N:
+                return createPositionSameLocation(position, Orientation.E);
+            case E:
+                return createPositionSameLocation(position, Orientation.S);
+            case S:
+                return createPositionSameLocation(position, Orientation.W);
+            case W:
+                return createPositionSameLocation(position, Orientation.N);
+            default:
+                throw new InvalidOrientationException();
+        }
+    }
+
+    private static class InvalidOrientationException extends UnsupportedOperationException {
+
+        public InvalidOrientationException() {
+            super("Invalid orientation");
         }
     }
 }
