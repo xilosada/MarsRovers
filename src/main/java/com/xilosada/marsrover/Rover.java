@@ -29,9 +29,11 @@ import static com.xilosada.marsrover.Position.createPositionSameLocation;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class Rover {
+public class Rover implements SpaceVehicle{
 
-    static Position move(Position position) {
+    public Rover() {}
+
+    public Position move(Position position) {
         switch (position.getOrientation()) {
             case N:
                 return createPosition(Orientation.N, position.getX(), position.getY() + 1);
@@ -46,7 +48,7 @@ public class Rover {
         }
     }
 
-    static Position turnLeft(Position position) {
+    public Position turnLeft(Position position) {
         switch (position.getOrientation()) {
             case N:
                 return createPositionSameLocation(position, Orientation.W);
@@ -61,7 +63,7 @@ public class Rover {
         }
     }
 
-    static Position turnRight(Position position) {
+    public Position turnRight(Position position) {
         switch (position.getOrientation()) {
             case N:
                 return createPositionSameLocation(position, Orientation.E);

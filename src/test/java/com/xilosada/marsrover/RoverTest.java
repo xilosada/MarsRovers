@@ -1,6 +1,7 @@
 package com.xilosada.marsrover;
 
 import com.xilosada.marsrover.Position.Orientation;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -31,10 +32,16 @@ import static org.junit.Assert.*;
  */
 public class RoverTest {
 
+    private Rover rover;
+
+    @Before public void setUp() {
+        rover = new Rover();
+    }
+
     @Test public void move() throws Exception {
         Position position = Position.createPosition(Orientation.E, 0 ,1);
 
-        Position resultPosition = Rover.move(position);
+        Position resultPosition = rover.move(position);
 
         assertSameOrientation(position, resultPosition);
         assertEquals(1, resultPosition.getX());
@@ -43,7 +50,7 @@ public class RoverTest {
 
         position = Position.createPosition(Orientation.N, 0 ,1);
 
-        resultPosition = Rover.move(position);
+        resultPosition = rover.move(position);
 
         assertSameOrientation(position, resultPosition);
         assertEquals(0, resultPosition.getX());
@@ -52,7 +59,7 @@ public class RoverTest {
 
         position = Position.createPosition(Orientation.W, 0 ,1);
 
-        resultPosition = Rover.move(position);
+        resultPosition = rover.move(position);
 
         assertSameOrientation(position, resultPosition);
         assertEquals(-1, resultPosition.getX());
@@ -61,7 +68,7 @@ public class RoverTest {
 
         position = Position.createPosition(Orientation.S, 0 ,1);
 
-        resultPosition = Rover.move(position);
+        resultPosition = rover.move(position);
 
         assertSameOrientation(position, resultPosition);
         assertEquals(0, resultPosition.getX());
@@ -71,22 +78,22 @@ public class RoverTest {
     @Test public void turnLeft() throws Exception {
         Position position = Position.createPosition(Orientation.E, 0 ,1);
 
-        Position resultPosition = Rover.turnLeft(position);
+        Position resultPosition = rover.turnLeft(position);
 
         assertSameLocation(position, resultPosition);
         assertTrue(resultPosition.getOrientation().equals(Orientation.N));
 
-        Position resultPosition2 = Rover.turnLeft(resultPosition);
+        Position resultPosition2 = rover.turnLeft(resultPosition);
 
         assertSameLocation(resultPosition, resultPosition2);
         assertTrue(resultPosition2.getOrientation().equals(Orientation.W));
 
-        Position resultPosition3 = Rover.turnLeft(resultPosition2);
+        Position resultPosition3 = rover.turnLeft(resultPosition2);
 
         assertSameLocation(resultPosition, resultPosition3);
         assertTrue(resultPosition3.getOrientation().equals(Orientation.S));
 
-        Position resultPosition4 = Rover.turnLeft(resultPosition3);
+        Position resultPosition4 = rover.turnLeft(resultPosition3);
 
         assertSameLocation(resultPosition, resultPosition4);
         assertTrue(resultPosition4.getOrientation().equals(Orientation.E));
@@ -95,19 +102,19 @@ public class RoverTest {
     @Test public void turnRight() throws Exception {
         Position position = Position.createPosition(Orientation.E, 0 ,1);
 
-        Position resultPosition = Rover.turnRight(position);
+        Position resultPosition = rover.turnRight(position);
         assertSameLocation(position, resultPosition);
         assertTrue(resultPosition.getOrientation().equals(Orientation.S));
 
-        Position resultPosition2 = Rover.turnRight(resultPosition);
+        Position resultPosition2 = rover.turnRight(resultPosition);
         assertSameLocation(resultPosition, resultPosition2);
         assertTrue(resultPosition2.getOrientation().equals(Orientation.W));
 
-        Position resultPosition3 = Rover.turnRight(resultPosition2);
+        Position resultPosition3 = rover.turnRight(resultPosition2);
         assertSameLocation(resultPosition, resultPosition3);
         assertTrue(resultPosition3.getOrientation().equals(Orientation.N));
 
-        Position resultPosition4 = Rover.turnRight(resultPosition3);
+        Position resultPosition4 = rover.turnRight(resultPosition3);
         assertSameLocation(resultPosition, resultPosition4);
         assertTrue(resultPosition4.getOrientation().equals(Orientation.E));
     }
