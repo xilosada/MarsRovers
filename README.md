@@ -43,5 +43,5 @@
 4. Once successfully built, you can run the application by running
 
   ```
-     java -jar mars-rovers-0.2.jar {path_file}
+     java -jar mars-rovers-0.2.jar {file_path}
   ```
